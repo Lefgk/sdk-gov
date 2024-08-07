@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
-// Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
-// (c) Gearbox Foundation, 2023
+
 pragma solidity ^0.8.17;
 
 enum AdapterType {
     ABSTRACT,
     UNISWAP_V2_ROUTER,
     UNISWAP_V3_ROUTER,
+    PANCAKESWAP_V2_ROUTER,
+    PANCAKESWAP_V3_ROUTER,
     CURVE_V1_EXCHANGE_ONLY,
     YEARN_V2,
     CURVE_V1_2ASSETS,
@@ -34,5 +35,6 @@ enum AdapterType {
     AAVE_V3_LENDING_POOL,
     ZIRCUIT_POOL,
     SYMBIOTIC_DEFAULT_COLLATERAL,
-    MELLOW_LRT_VAULT
+    MELLOW_LRT_VAULT,
+    ETH_wBETH
 }

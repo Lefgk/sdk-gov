@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
-// Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
-// (c) Gearbox Foundation, 2023
+
 pragma solidity ^0.8.17;
 
-import {Tokens} from "./Tokens.sol";
-import {Contracts} from "./SupportedContracts.sol";
+import { Tokens } from "./Tokens.sol";
+import { Contracts } from "./SupportedContracts.sol";
 
-import {TokensLib} from "./TokensLib.sol";
+import { TokensLib } from "./TokensLib.sol";
 
 struct ChainlinkPriceFeedData {
     Tokens token;
@@ -137,13 +136,15 @@ contract PriceFeedDataLive {
     mapping(address => string) redstoneServiceIdByPriceFeed;
     mapping(uint256 => BalancerLPPriceFeedData[]) balancerStableLPPriceFeedsByNetwork;
     mapping(uint256 => BalancerLPPriceFeedData[]) balancerWeightedLPPriceFeedsByNetwork;
-    mapping(uint256 => GenericLPPriceFeedData[]) mellowLRTPriceFeedsByNetwork; 
+    mapping(uint256 => GenericLPPriceFeedData[]) mellowLRTPriceFeedsByNetwork;
 
     constructor() {
         // $GENERATE_HERE$
     }
 
-    function chainlinkPriceFeeds(uint256 index) external view returns (ChainlinkPriceFeedData memory) {
+    function chainlinkPriceFeeds(
+        uint256 index
+    ) external view returns (ChainlinkPriceFeedData memory) {
         return chainlinkPriceFeedsByNetwork[block.chainid][index];
     }
 }

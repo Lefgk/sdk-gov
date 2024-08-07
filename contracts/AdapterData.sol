@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
-// Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
-// (c) Gearbox Foundation, 2023
+
 pragma solidity ^0.8.17;
 
-import {Tokens} from "./Tokens.sol";
-import {Contracts} from "./SupportedContracts.sol";
-import {AdapterType} from "./AdapterType.sol";
+import { Tokens } from "./Tokens.sol";
+import { Contracts } from "./SupportedContracts.sol";
+import { AdapterType } from "./AdapterType.sol";
 
 struct SimpleAdapter {
     Contracts targetContract;
@@ -47,70 +46,136 @@ contract AdapterData {
 
     constructor() {
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.UNISWAP_V2_ROUTER, adapterType: AdapterType.UNISWAP_V2_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.UNISWAP_V2_ROUTER,
+                adapterType: AdapterType.UNISWAP_V2_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.UNISWAP_V3_ROUTER, adapterType: AdapterType.UNISWAP_V3_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.UNISWAP_V3_ROUTER,
+                adapterType: AdapterType.UNISWAP_V3_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.PANCAKESWAP_V3_ROUTER, adapterType: AdapterType.UNISWAP_V3_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.PANCAKESWAP_V3_ROUTER,
+                adapterType: AdapterType.UNISWAP_V3_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.SUSHISWAP_ROUTER, adapterType: AdapterType.UNISWAP_V2_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.SUSHISWAP_ROUTER,
+                adapterType: AdapterType.UNISWAP_V2_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.FRAXSWAP_ROUTER, adapterType: AdapterType.UNISWAP_V2_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.FRAXSWAP_ROUTER,
+                adapterType: AdapterType.UNISWAP_V2_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.VELODROME_V2_ROUTER, adapterType: AdapterType.VELODROME_V2_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.VELODROME_V2_ROUTER,
+                adapterType: AdapterType.VELODROME_V2_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.VELODROME_CL_ROUTER, adapterType: AdapterType.UNISWAP_V3_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.VELODROME_CL_ROUTER,
+                adapterType: AdapterType.UNISWAP_V3_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.CAMELOT_V3_ROUTER, adapterType: AdapterType.CAMELOT_V3_ROUTER})
+            SimpleAdapter({
+                targetContract: Contracts.CAMELOT_V3_ROUTER,
+                adapterType: AdapterType.CAMELOT_V3_ROUTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_DAI_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_DAI_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_USDC_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_USDC_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_USDC_E_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_USDC_E_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_WETH_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_WETH_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_WBTC_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_WBTC_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_USDT_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_USDT_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_OP_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_OP_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_CURVE_FRAX_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_CURVE_FRAX_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YEARN_CURVE_STETH_VAULT, adapterType: AdapterType.YEARN_V2})
+            SimpleAdapter({
+                targetContract: Contracts.YEARN_CURVE_STETH_VAULT,
+                adapterType: AdapterType.YEARN_V2
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.MAKER_DSR_VAULT, adapterType: AdapterType.ERC4626_VAULT})
+            SimpleAdapter({
+                targetContract: Contracts.MAKER_DSR_VAULT,
+                adapterType: AdapterType.ERC4626_VAULT
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.YIELD_ETH_VAULT, adapterType: AdapterType.ERC4626_VAULT})
+            SimpleAdapter({
+                targetContract: Contracts.YIELD_ETH_VAULT,
+                adapterType: AdapterType.ERC4626_VAULT
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.STAKED_USDE_VAULT, adapterType: AdapterType.ERC4626_VAULT})
+            SimpleAdapter({
+                targetContract: Contracts.STAKED_USDE_VAULT,
+                adapterType: AdapterType.ERC4626_VAULT
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.CONVEX_BOOSTER, adapterType: AdapterType.CONVEX_V1_BOOSTER})
+            SimpleAdapter({
+                targetContract: Contracts.CONVEX_BOOSTER,
+                adapterType: AdapterType.CONVEX_V1_BOOSTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.CONVEX_BOOSTER_ARB, adapterType: AdapterType.CONVEX_L2_BOOSTER})
+            SimpleAdapter({
+                targetContract: Contracts.CONVEX_BOOSTER_ARB,
+                adapterType: AdapterType.CONVEX_L2_BOOSTER
+            })
         );
         simpleAdapters.push(
             SimpleAdapter({
@@ -119,19 +184,34 @@ contract AdapterData {
             })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.AURA_BOOSTER, adapterType: AdapterType.CONVEX_V1_BOOSTER})
+            SimpleAdapter({
+                targetContract: Contracts.AURA_BOOSTER,
+                adapterType: AdapterType.CONVEX_V1_BOOSTER
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.LIDO_STETH_GATEWAY, adapterType: AdapterType.LIDO_V1})
+            SimpleAdapter({
+                targetContract: Contracts.LIDO_STETH_GATEWAY,
+                adapterType: AdapterType.LIDO_V1
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.LIDO_WSTETH, adapterType: AdapterType.LIDO_WSTETH_V1})
+            SimpleAdapter({
+                targetContract: Contracts.LIDO_WSTETH,
+                adapterType: AdapterType.LIDO_WSTETH_V1
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.UNIVERSAL_ADAPTER, adapterType: AdapterType.UNIVERSAL})
+            SimpleAdapter({
+                targetContract: Contracts.UNIVERSAL_ADAPTER,
+                adapterType: AdapterType.UNIVERSAL
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.BALANCER_VAULT, adapterType: AdapterType.BALANCER_VAULT})
+            SimpleAdapter({
+                targetContract: Contracts.BALANCER_VAULT,
+                adapterType: AdapterType.BALANCER_VAULT
+            })
         );
         simpleAdapters.push(
             SimpleAdapter({
@@ -170,16 +250,28 @@ contract AdapterData {
             })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.COMPOUND_V2_DAI_POOL, adapterType: AdapterType.COMPOUND_V2_CERC20})
+            SimpleAdapter({
+                targetContract: Contracts.COMPOUND_V2_DAI_POOL,
+                adapterType: AdapterType.COMPOUND_V2_CERC20
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.COMPOUND_V2_USDC_POOL, adapterType: AdapterType.COMPOUND_V2_CERC20})
+            SimpleAdapter({
+                targetContract: Contracts.COMPOUND_V2_USDC_POOL,
+                adapterType: AdapterType.COMPOUND_V2_CERC20
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.COMPOUND_V2_USDT_POOL, adapterType: AdapterType.COMPOUND_V2_CERC20})
+            SimpleAdapter({
+                targetContract: Contracts.COMPOUND_V2_USDT_POOL,
+                adapterType: AdapterType.COMPOUND_V2_CERC20
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.COMPOUND_V2_LINK_POOL, adapterType: AdapterType.COMPOUND_V2_CERC20})
+            SimpleAdapter({
+                targetContract: Contracts.COMPOUND_V2_LINK_POOL,
+                adapterType: AdapterType.COMPOUND_V2_CERC20
+            })
         );
         simpleAdapters.push(
             SimpleAdapter({
@@ -188,10 +280,16 @@ contract AdapterData {
             })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.FLUX_USDC_POOL, adapterType: AdapterType.COMPOUND_V2_CERC20})
+            SimpleAdapter({
+                targetContract: Contracts.FLUX_USDC_POOL,
+                adapterType: AdapterType.COMPOUND_V2_CERC20
+            })
         );
         simpleAdapters.push(
-            SimpleAdapter({targetContract: Contracts.ZIRCUIT_POOL, adapterType: AdapterType.ZIRCUIT_POOL})
+            SimpleAdapter({
+                targetContract: Contracts.ZIRCUIT_POOL,
+                adapterType: AdapterType.ZIRCUIT_POOL
+            })
         );
         curveAdapters.push(
             CurveAdapter({
