@@ -146,7 +146,8 @@ export type SupportedContract =
   | "VELODROME_CL_ROUTER"
   | "CAMELOT_V3_ROUTER"
   | "AAVE_V3_LENDING_POOL"
-  | "ZIRCUIT_POOL";
+  | "ZIRCUIT_POOL"
+  | "VENUS_CORE_POOL";
 
 export const contractsByNetwork: Record<
   NetworkType,
@@ -273,7 +274,7 @@ export const contractsByNetwork: Record<
     // AAVE
     AAVE_V2_LENDING_POOL: "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
     AAVE_V3_LENDING_POOL: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
-
+    VENUS_CORE_POOL: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
     AAVE_V2_DAI_TOKEN_WRAPPER: tokenDataByNetwork.Mainnet.waDAI,
     AAVE_V2_USDC_TOKEN_WRAPPER: tokenDataByNetwork.Mainnet.waUSDC,
     AAVE_V2_USDT_TOKEN_WRAPPER: tokenDataByNetwork.Mainnet.waUSDT,
@@ -300,6 +301,7 @@ export const contractsByNetwork: Record<
   //
   //
   Arbitrum: {
+    VENUS_CORE_POOL: NOT_DEPLOYED,
     UNISWAP_V2_ROUTER: NOT_DEPLOYED,
     UNISWAP_V3_ROUTER: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
     PANCAKESWAP_V3_ROUTER: "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
@@ -446,6 +448,7 @@ export const contractsByNetwork: Record<
   //
   //
   Optimism: {
+    VENUS_CORE_POOL: NOT_DEPLOYED,
     UNISWAP_V2_ROUTER: NOT_DEPLOYED,
     UNISWAP_V3_ROUTER: "0xE592427A0AEce92De3Edee1F18E0157C05861564", // UNVERIFIED!
     PANCAKESWAP_V3_ROUTER: NOT_DEPLOYED,
@@ -593,6 +596,7 @@ export const contractsByNetwork: Record<
   //
   //
   Base: {
+    VENUS_CORE_POOL: NOT_DEPLOYED,
     UNISWAP_V2_ROUTER: NOT_DEPLOYED,
     UNISWAP_V3_ROUTER: NOT_DEPLOYED,
     PANCAKESWAP_V3_ROUTER: "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
@@ -747,6 +751,11 @@ export const VELODROME_V2_CL_FACTORY: Address =
 export interface BaseContractParams {
   name: string;
 }
+
+export type VenusParams = {
+  protocol: Protocols.Venus;
+  type: AdapterInterface.VENUS_CORE_POOL;
+} & BaseContractParams;
 
 export type UniswapV2Params = {
   protocol: Protocols.Uniswap | Protocols.Sushiswap | Protocols.Fraxswap;
@@ -941,9 +950,15 @@ export type ContractParams =
   | AuraParams
   | AuraPoolParams
   | ERC4626Params
-  | ZircuitParams;
+  | ZircuitParams
+  | VenusParams;
 
 export const contractParams: Record<SupportedContract, ContractParams> = {
+  VENUS_CORE_POOL: {
+    name: "Venus",
+    protocol: Protocols.Venus,
+    type: AdapterInterface.VENUS_CORE_POOL,
+  },
   UNISWAP_V2_ROUTER: {
     name: "Uniswap V2",
     protocol: Protocols.Uniswap,

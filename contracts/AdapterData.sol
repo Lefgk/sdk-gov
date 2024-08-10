@@ -71,8 +71,8 @@ contract AdapterData {
         );
         simpleAdapters.push(
             SimpleAdapter({
-                targetContract: Contracts.FRAXSWAP_ROUTER,
-                adapterType: AdapterType.UNISWAP_V2_ROUTER
+                targetContract: Contracts.VENUS_CORE_POOL,
+                adapterType: AdapterType.VENUS_CORE_POOL
             })
         );
         simpleAdapters.push(
